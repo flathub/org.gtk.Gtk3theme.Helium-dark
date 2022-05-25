@@ -14,7 +14,7 @@ modules:
   - name: Helium-dark
     buildsystem: meson
     config-opts:
-      - "-Dgtk4=false"
+      - "-Dgtk4=true"
       - "-Dshell=false"
     post-install:
       - rm -r /usr/share/runtime/share/themes/Helium-dark/gtk-3.0/share/themes/Helium
