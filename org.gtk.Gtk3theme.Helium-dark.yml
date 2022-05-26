@@ -7,54 +7,39 @@ sdk: org.freedesktop.Sdk
 build-extension: true
 appstream-compose: false
 separate-locales: false
-build-options:
-  prefix: "/usr/share/runtime/share/themes/Helium-dark/gtk-3.0"
 
 modules:
   - name: Helium-dark
-    buildsystem: meson
-    config-opts:
-      - "-Dgtk4=true"
-      - "-Dshell=false"
-    post-install:
-      - rm -r /usr/share/runtime/share/themes/Helium-dark/gtk-3.0/share/themes/Helium
+    buildsystem: simple
     build-options:
-      prefix: "/usr/share/runtime/share/themes/Helium-dark/gtk-3.0"
-      append-path: "/usr/share/runtime/share/themes/Helium-dark/gtk-3.0/bin"
+      append-path: /usr/share/runtime/share/themes/Helium-dark/gtk-3.0/bin
+    build-commands:
+      - meson builddir -Dgtk4=false -Dshell=false && cd builddir && meson compile
+      - ls builddir/Helium/gtk-3.0
+      - cp builddir/Helium/gtk-3.0/gtk-dark.css ${FLATPAK_DEST}/gtk.css
     sources:
       - type: git
         url: https://github.com/tau-OS/tau-helium.git
-        tag: v1.1.1
-        commit: f444fdcf36a8708e3f6e2a04e2dc60b1d14aa329
+        tag: v1.2.0
+        commit: 3073bc21c62b89a48e6ee72e31a27a6ae065ce32
     modules:
-      - name: sassc
+      - name: sass
         cleanup:
           - "*"
-        config-opts:
-          ["--with-libsass=/usr/share/runtime/share/themes/Helium-dark/gtk-3.0"]
+        buildsystem: "simple"
+        build-commands:
+          - install -D -m755 sass ${FLATPAK_DEST}/bin/sass
         sources:
-          - type: git
-            url: https://github.com/sass/sassc.git
-            tag: 3.6.1
-            commit: 46748216ba0b60545e814c07846ca10c9fefc5b6
-          - type: script
-            dest-filename: autogen.sh
-            commands:
-              - autoreconf -si
-        modules:
-          - name: libsass
-            cleanup:
-              - "*"
-            sources:
-              - type: git
-                url: https://github.com/sass/libsass.git
-                tag: 3.6.4
-                commit: 8d312a1c91bb7dd22883ebdfc829003f75a82396
-              - type: script
-                dest-filename: autogen.sh
-                commands:
-                  - autoreconf -si
-
+          - type: archive
+            url: https://github.com/sass/dart-sass/releases/download/1.52.1/dart-sass-1.52.1-linux-x64.tar.gz
+            sha256: 6e893c09e863e74a28b77b809cf63a99b2d14724611858d8f3e54910e1a069d8
+            only-arches:
+              - x86_64
+          - type: archive
+            url: https://github.com/sass/dart-sass/releases/download/1.52.1/dart-sass-1.52.1-linux-arm64.tar.gz
+            sha256: 7a42bb05d3f10f50541bc74ebac41e41cabc247116918b93ea0954a3e553192b
+            only-arches:
+              - aarch64
   - name: appdata
     buildsystem: simple
     build-commands:
