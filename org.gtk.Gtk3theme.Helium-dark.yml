@@ -37,7 +37,7 @@ modules:
               - x86_64
           - type: archive
             url: https://github.com/sass/dart-sass/releases/download/1.52.1/dart-sass-1.52.1-linux-arm64.tar.gz
-            sha256: 0e1e7083e8c263f0f87460141c8817d3d1f492857131d722a5473d4b33cd7a1e
+            sha256: 7a42bb05d3f10f50541bc74ebac41e41cabc247116918b93ea0954a3e553192b
             only-arches:
               - aarch64
   - name: appdata
