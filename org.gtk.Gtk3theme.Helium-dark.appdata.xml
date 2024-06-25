@@ -8,4 +8,9 @@
       <p>The tauOS Helium GTK theme</p>
   </description>
   <url type="homepage">https://tauos.co</url>
+  <releases>
+    <release version="1.8.10-9" date="2024-06-25">
+      <description></description>
+    </release>
+  </releases>
 </component>
