@@ -1,7 +1,7 @@
 id: org.gtk.Gtk3theme.Helium-dark
-branch: "3.22"
+branch: '3.22'
 runtime: org.freedesktop.Platform
-runtime-version: "23.08"
+runtime-version: '23.08'
 sdk: org.freedesktop.Sdk
 
 build-extension: true
@@ -17,9 +17,9 @@ modules:
       - cp builddir/Helium/gtk-3.0/gtk-dark.css ${FLATPAK_DEST}/gtk.css
     sources:
       - type: archive
-        url: https://api.github.com/repos/tau-OS/tau-helium/tarball/1.8.10-7
+        url: https://api.github.com/repos/tau-OS/tau-helium/tarball/1.8.10-10
         dest-filename: Helium-dark.tar.gz
-        sha256: f8c0f93fd1c275c623cb8df5d6a38251f6269e27ed1e432fe9cfd05fb99ae883
+        sha256: 0b2f831b2922e6c751a1163ae511dfefe57b7420faf89eba784a061abadb77f5
         x-checker-data:
           type: json
           url: https://api.github.com/repos/tau-OS/tau-helium/releases/latest
@@ -29,8 +29,8 @@ modules:
     modules:
       - name: sass
         cleanup:
-          - "*"
-        buildsystem: "simple"
+          - '*'
+        buildsystem: simple
         build-commands:
           - install -D -m755 sass ${FLATPAK_DEST}/bin/sass
           - install -D -m755 src/dart ${FLATPAK_DEST}/bin/src/dart
