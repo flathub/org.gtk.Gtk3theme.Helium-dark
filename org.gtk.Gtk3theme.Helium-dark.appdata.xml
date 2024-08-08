@@ -9,8 +9,11 @@
   </description>
   <url type="homepage">https://tauos.co</url>
   <releases>
-    <release version="1.8.14" date="2024-07-30">
+    <release version="1.8.14-2" date="2024-08-08">
       <description></description>
+    </release>
+    <release version="1.8.14" date="2024-07-30">
+      <description/>
     </release>
     <release version="1.8.13" date="2024-07-30">
       <description/>
