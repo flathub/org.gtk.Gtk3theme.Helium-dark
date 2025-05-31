@@ -17,9 +17,9 @@ modules:
       - cp builddir/Helium/gtk-3.0/gtk-dark.css ${FLATPAK_DEST}/gtk.css
     sources:
       - type: archive
-        url: https://api.github.com/repos/tau-OS/tau-helium/tarball/1.8.24
+        url: https://api.github.com/repos/tau-OS/tau-helium/tarball/1.8.32
         dest-filename: Helium-dark.tar.gz
-        sha256: e5f22b76c92675471ad99fd8c1eda072df247e575d282c8c0d2cb56212176813
+        sha256: 4663e88797f7f81d6f64fabec663311113aa5f43806c2d2c30c40de7da3b99c7
         x-checker-data:
           type: json
           url: https://api.github.com/repos/tau-OS/tau-helium/releases/latest
